@@ -30,7 +30,8 @@ class GameplayScene: SKScene {
         createBird()
         createBackgrounds();
         createGrounds();
-        createPipes();
+        spawnObstacles();
+        
     }
     
     func createBird() {
@@ -117,11 +118,32 @@ class GameplayScene: SKScene {
         pipeDown.physicsBody?.isDynamic = false;
         
         pipesHolder.zPosition = 5;
-        pipesHolder.position = CGPoint(x: 0, y: 0);
+        pipesHolder.position.x = self.frame.width + 100;
+        pipesHolder.position.y = 0;
+        pipesHolder.position = CGPoint(x: 300, y: 0);
         
         pipesHolder.addChild(pipeUp);
         pipesHolder.addChild(pipeDown);
         
         self.addChild(pipesHolder);
+        
+        let destination = self.frame.width * 2;
+        let move = SKAction.moveTo(x: -destination, duration: TimeInterval(10));
+        let remove = SKAction.removeFromParent();
+        
+        pipesHolder.run(SKAction.sequence([move, remove]), withKey: "Move");
+        
+    }
+    
+    func spawnObstacles() {
+        let spawn = SKAction.run({ () -> Void in
+            self.createPipes();
+        });
+        
+        let delay = SKAction.wait(forDuration: TimeInterval(2));
+        let sequence = SKAction.sequence([spawn, delay]);
+        
+        self.run(SKAction.repeatForever(sequence), withKey: "Spawn");
+        
     }
 }
