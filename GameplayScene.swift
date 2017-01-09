@@ -20,6 +20,10 @@ class GameplayScene: SKScene {
         moveBackgroundsAndGrounds();
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        bird.flap();
+    }
+    
     func initalize() {
         createBird()
         createBackgrounds();
@@ -53,6 +57,12 @@ class GameplayScene: SKScene {
         ground.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         ground.position = CGPoint(x: CGFloat(i) * ground.size.width, y: -(self.frame.size.height / 2));
         self.addChild(ground);
+        ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size);
+        ground.physicsBody?.affectedByGravity = false;
+        ground.physicsBody?.isDynamic = false;
+        ground.physicsBody?.categoryBitMask = ColliderType.Ground;
+       // ground.physicsBody?.collisionBitMask = ColliderType.Bird;
+       // ground.physicsBody?.contactTestBitMask = ColliderType.Bird;
         }
     }
     
