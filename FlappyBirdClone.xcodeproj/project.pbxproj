@@ -33,6 +33,7 @@
 		50DA15B51E241BC800BBA410 /* Score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50DA15B21E241BC800BBA410 /* Score.mp3 */; };
 		50DA15B91E241C9800BBA410 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 50DA15B81E241C9800BBA410 /* GameplayScene.sks */; };
 		50DA15BC1E241CE900BBA410 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA15BB1E241CE900BBA410 /* GameplayScene.swift */; };
+		50DA15BF1E24262500BBA410 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA15BE1E24262500BBA410 /* Bird.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		50DA15B21E241BC800BBA410 /* Score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Score.mp3; sourceTree = "<group>"; };
 		50DA15B81E241C9800BBA410 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		50DA15BB1E241CE900BBA410 /* GameplayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
+		50DA15BE1E24262500BBA410 /* Bird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		50DA15B71E241C6A00BBA410 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				50DA15BD1E24260700BBA410 /* Bird Class */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -252,6 +255,14 @@
 				50DA15BB1E241CE900BBA410 /* GameplayScene.swift */,
 			);
 			name = "Scene Classes";
+			sourceTree = "<group>";
+		};
+		50DA15BD1E24260700BBA410 /* Bird Class */ = {
+			isa = PBXGroup;
+			children = (
+				50DA15BE1E24262500BBA410 /* Bird.swift */,
+			);
+			name = "Bird Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +422,7 @@
 			files = (
 				50DA15BC1E241CE900BBA410 /* GameplayScene.swift in Sources */,
 				50DA15651E24195F00BBA410 /* GameViewController.swift in Sources */,
+				50DA15BF1E24262500BBA410 /* Bird.swift in Sources */,
 				50DA155D1E24195F00BBA410 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

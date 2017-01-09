@@ -10,13 +10,27 @@ import SpriteKit
 
 class GameplayScene: SKScene {
     
+    var bird = Bird();
+    
     override func didMove(to view: SKView) {
         initalize();
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        moveBackgroundsAndGrounds();
+    }
+    
     func initalize() {
+        createBird()
         createBackgrounds();
         createGrounds();
+    }
+    
+    func createBird() {
+        bird = Bird(imageNamed: "Blue 1");
+        bird.initalize();
+        bird.position = CGPoint(x: -50, y: 0);
+        self.addChild(bird);
     }
     
     func createBackgrounds() {
@@ -40,5 +54,28 @@ class GameplayScene: SKScene {
         ground.position = CGPoint(x: CGFloat(i) * ground.size.width, y: -(self.frame.size.height / 2));
         self.addChild(ground);
         }
+    }
+    
+    func moveBackgroundsAndGrounds() {
+        enumerateChildNodes(withName: "BG", using: ({
+            (node, error) in
+            
+            node.position.x -= 4.5;
+            if node.position.x < -(self.frame.width) {
+            node.position.x += self.frame.width * 3;
+            }
+        }));
+        
+    func moveBackgroundsAndGrounds() {
+        enumerateChildNodes(withName: "Ground", using: ({
+        (node, error) in
+                
+            node.position.x -= 2;
+            if node.position.x < -(self.frame.width) {
+            node.position.x += self.frame.width * 3;
+                }
+            }));
+    }
+        
     }
 }
