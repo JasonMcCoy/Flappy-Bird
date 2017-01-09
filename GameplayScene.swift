@@ -12,6 +12,8 @@ class GameplayScene: SKScene {
     
     var bird = Bird();
     
+    var pipesHolder = SKNode();
+    
     override func didMove(to view: SKView) {
         initalize();
     }
@@ -28,6 +30,7 @@ class GameplayScene: SKScene {
         createBird()
         createBackgrounds();
         createGrounds();
+        createPipes();
     }
     
     func createBird() {
@@ -87,5 +90,38 @@ class GameplayScene: SKScene {
             }));
     }
         
+    }
+    
+    func createPipes() {
+        pipesHolder = SKNode();
+        pipesHolder.name = "Holder";
+        
+        let pipeUp = SKSpriteNode(imageNamed: "Pipe 1");
+        let pipeDown = SKSpriteNode(imageNamed: "Pipe 1");
+        
+        pipeUp.name = "Pipe";
+        pipeUp.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        pipeUp.position = CGPoint(x: 0, y: 500);
+        pipeUp.zRotation = CGFloat(M_PI);
+        pipeUp.physicsBody = SKPhysicsBody(rectangleOf: pipeUp.size);
+        pipeUp.physicsBody?.categoryBitMask = ColliderType.Pipes;
+        pipeUp.physicsBody?.affectedByGravity = false;
+        pipeUp.physicsBody?.isDynamic = false;
+        
+        pipeDown.name = "Pipe";
+        pipeDown.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        pipeDown.position = CGPoint(x: 0, y: -500);
+        pipeDown.physicsBody = SKPhysicsBody(rectangleOf: pipeDown.size);
+        pipeDown.physicsBody?.categoryBitMask = ColliderType.Pipes;
+        pipeDown.physicsBody?.affectedByGravity = false;
+        pipeDown.physicsBody?.isDynamic = false;
+        
+        pipesHolder.zPosition = 5;
+        pipesHolder.position = CGPoint(x: 0, y: 0);
+        
+        pipesHolder.addChild(pipeUp);
+        pipesHolder.addChild(pipeDown);
+        
+        self.addChild(pipesHolder);
     }
 }
