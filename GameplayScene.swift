@@ -16,6 +16,7 @@ class GameplayScene: SKScene {
     
     override func didMove(to view: SKView) {
         initalize();
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -102,7 +103,8 @@ class GameplayScene: SKScene {
         
         pipeUp.name = "Pipe";
         pipeUp.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        pipeUp.position = CGPoint(x: 0, y: 500);
+        pipeUp.position = CGPoint(x: 0, y: 630);
+        pipeUp.yScale = 1.5;
         pipeUp.zRotation = CGFloat(M_PI);
         pipeUp.physicsBody = SKPhysicsBody(rectangleOf: pipeUp.size);
         pipeUp.physicsBody?.categoryBitMask = ColliderType.Pipes;
@@ -111,7 +113,8 @@ class GameplayScene: SKScene {
         
         pipeDown.name = "Pipe";
         pipeDown.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        pipeDown.position = CGPoint(x: 0, y: -500);
+        pipeDown.position = CGPoint(x: 0, y: -630);
+        pipeDown.yScale = 1.5;
         pipeDown.physicsBody = SKPhysicsBody(rectangleOf: pipeDown.size);
         pipeDown.physicsBody?.categoryBitMask = ColliderType.Pipes;
         pipeDown.physicsBody?.affectedByGravity = false;
@@ -119,7 +122,7 @@ class GameplayScene: SKScene {
         
         pipesHolder.zPosition = 5;
         pipesHolder.position.x = self.frame.width + 100;
-        pipesHolder.position.y = 0;
+        pipesHolder.position.y = CGFloat.randomBetweenNumbers(firstNum: -300, secondNum: 300);
         pipesHolder.position = CGPoint(x: 300, y: 0);
         
         pipesHolder.addChild(pipeUp);
