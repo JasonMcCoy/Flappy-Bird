@@ -18,16 +18,29 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var score = 0;
     
+    var gameStarted = false;
+    
+    var isAlive = false;
+    
     override func didMove(to view: SKView) {
         initalize();
         
     }
     
     override func update(_ currentTime: TimeInterval) {
-        moveBackgroundsAndGrounds();
+        if isAlive {
+            moveBackgroundsAndGrounds();
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if gameStarted == false {
+            isAlive = true;
+            gameStarted = true;
+            spawnObstacles();
+            bird.physicsBody?.affectedByGravity = true;
+        }
+        
         bird.flap();
     }
     
@@ -48,9 +61,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             
         } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Pipe" {
             
+            if isAlive {
+                birdDied();
+            }
             
         } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Ground" {
             
+            if isAlive {
+                birdDied();
+            }
         }
     }
     
@@ -61,7 +80,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         createBird()
         createBackgrounds();
         createGrounds();
-        spawnObstacles();
         createLabel();
         
     }
@@ -208,6 +226,34 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     func incrementScore() {
         score += 1;
         scoreLabel.text = String(score);
+    }
+    
+    func birdDied() {
+        
+        isAlive = false;
+        
+        let retry = SKSpriteNode(imageNamed: "Retry");
+        let quit = SKSpriteNode(imageNamed: "Quit");
+        
+        retry.name = "Retry";
+        retry.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        retry.position = CGPoint(x: -150, y: 150);
+        retry.zPosition = 7;
+        retry.setScale(0);
+        
+        quit.name = "Quit";
+        quit.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        quit.position = CGPoint(x: 150, y: -150);
+        quit.zPosition = 7;
+        quit.setScale(0);
+        
+        let scaleUp = SKAction.scale(by: 1, duration: TimeInterval(0.5));
+        retry.run(scaleUp);
+        quit.run(scaleUp);
+        
+        self.addChild(retry);
+        self.addChild(quit);
+        
     }
 }
 
