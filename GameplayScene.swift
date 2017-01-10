@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameplayScene: SKScene {
+class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var bird = Bird();
     
@@ -31,7 +31,33 @@ class GameplayScene: SKScene {
         bird.flap();
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody = SKPhysicsBody();
+        var secondBody = SKPhysicsBody();
+        
+        if contact.bodyA.node?.name == "Bird" {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+        
+        if firstBody.node?.name == "Bird" && secondBody.node?.name == "Score" {
+            incrementScore();
+            
+        } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Pipe" {
+            
+            
+        } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Ground" {
+            
+        }
+    }
+    
     func initalize() {
+        
+        physicsWorld.contactDelegate = self;
+        
         createBird()
         createBackgrounds();
         createGrounds();
@@ -143,7 +169,7 @@ class GameplayScene: SKScene {
         pipesHolder.zPosition = 5;
         pipesHolder.position.x = self.frame.width + 100;
         pipesHolder.position.y = CGFloat.randomBetweenNumbers(firstNum: -300, secondNum: 300);
-        pipesHolder.position = CGPoint(x: 300, y: 0);
+        //pipesHolder.position = CGPoint(x: 300, y: 0);
         
         pipesHolder.addChild(pipeUp);
         pipesHolder.addChild(pipeDown);
