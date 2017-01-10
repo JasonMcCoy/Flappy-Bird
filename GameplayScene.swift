@@ -14,6 +14,10 @@ class GameplayScene: SKScene {
     
     var pipesHolder = SKNode();
     
+    var scoreLabel = SKLabelNode(fontNamed: "04b_19");
+    
+    var score = 0;
+    
     override func didMove(to view: SKView) {
         initalize();
         
@@ -32,6 +36,7 @@ class GameplayScene: SKScene {
         createBackgrounds();
         createGrounds();
         spawnObstacles();
+        createLabel();
         
     }
     
@@ -101,6 +106,21 @@ class GameplayScene: SKScene {
         let pipeUp = SKSpriteNode(imageNamed: "Pipe 1");
         let pipeDown = SKSpriteNode(imageNamed: "Pipe 1");
         
+        let scoreNode = SKSpriteNode();
+        
+        scoreNode.color = SKColor.red;
+        
+        scoreNode.name = "Score";
+        scoreNode.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        scoreNode.position = CGPoint(x: 0, y: 0);
+        scoreNode.size = CGSize(width: 5, height: 300);
+        scoreNode.physicsBody = SKPhysicsBody(rectangleOf: scoreNode.size);
+        scoreNode.physicsBody?.categoryBitMask = ColliderType.Score;
+        scoreNode.physicsBody?.collisionBitMask = 0;
+        scoreNode.physicsBody?.affectedByGravity = false;
+        scoreNode.physicsBody?.isDynamic = false;
+        
+        
         pipeUp.name = "Pipe";
         pipeUp.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         pipeUp.position = CGPoint(x: 0, y: 630);
@@ -127,6 +147,7 @@ class GameplayScene: SKScene {
         
         pipesHolder.addChild(pipeUp);
         pipesHolder.addChild(pipeDown);
+        pipesHolder.addChild(scoreNode);
         
         self.addChild(pipesHolder);
         
@@ -149,4 +170,19 @@ class GameplayScene: SKScene {
         self.run(SKAction.repeatForever(sequence), withKey: "Spawn");
         
     }
+    
+    func createLabel() {
+        scoreLabel.zPosition = 6;
+        scoreLabel.position = CGPoint(x: 0, y: 450);
+        scoreLabel.fontSize = 120;
+        scoreLabel.text = "0";
+        self.addChild(scoreLabel);
+    }
+    
+    func incrementScore() {
+        score += 1;
+        scoreLabel.text = String(score);
+    }
 }
+
+
