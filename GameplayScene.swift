@@ -33,14 +33,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //First Time We Touch The Screen
         if gameStarted == false {
             isAlive = true;
             gameStarted = true;
             spawnObstacles();
             bird.physicsBody?.affectedByGravity = true;
+            bird.flap();
         }
         
-        bird.flap();
+        if isAlive {
+            bird.flap();
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
