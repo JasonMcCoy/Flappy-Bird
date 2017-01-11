@@ -21,6 +21,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     var gameStarted = false;
     var isAlive = false;
     
+    var press = SKSpriteNode();
+    
     override func didMove(to view: SKView) {
         initalize();
         
@@ -37,6 +39,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         if gameStarted == false {
             isAlive = true;
             gameStarted = true;
+            press.removeFromParent();
             spawnObstacles();
             bird.physicsBody?.affectedByGravity = true;
             bird.flap();
@@ -44,6 +47,20 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         
         if isAlive {
             bird.flap();
+        }
+        
+        for touch in touches {
+            let location = touch.location(in: self);
+            
+            if atPoint(location).name == "Retry" {
+                //Restart The Game
+                self.removeAllActions();
+                self.removeAllChildren();
+                initalize();
+            }
+            if atPoint(location).name == "Quit" {
+                //Go Back To Main Menu
+            }
         }
     }
     
@@ -77,13 +94,27 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     func initalize() {
         
+        gameStarted = false;
+        isAlive = false;
+        score = 0;
+        
         physicsWorld.contactDelegate = self;
         
-        createBird()
+        createInstructions();
+        createBird();
         createBackgrounds();
         createGrounds();
         createLabel();
         
+    }
+    
+    func createInstructions() {
+        press = SKSpriteNode(imageNamed: "Press");
+        press.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        press.position = CGPoint(x: 0, y: 0);
+        press.setScale(1.8);
+        press.zPosition = 10;
+        self.addChild(press);
     }
     
     func createBird() {
