@@ -367,7 +367,7 @@
 				TargetAttributes = {
 					50DA15581E24195F00BBA410 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8WCYPPFQC5;
+						DevelopmentTeam = 4J6N8TR2LN;
 						ProvisioningStyle = Automatic;
 					};
 					50DA15721E24196000BBA410 = {
@@ -613,7 +613,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8WCYPPFQC5;
+				DEVELOPMENT_TEAM = 4J6N8TR2LN;
 				INFOPLIST_FILE = FlappyBirdClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Deborah.FlappyBirdClone;
@@ -626,7 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8WCYPPFQC5;
+				DEVELOPMENT_TEAM = 4J6N8TR2LN;
 				INFOPLIST_FILE = FlappyBirdClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Deborah.FlappyBirdClone;
