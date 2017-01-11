@@ -12,6 +12,8 @@
 		5058D2471E2599B400CCD5B8 /* Press.png in Resources */ = {isa = PBXBuildFile; fileRef = 5058D2421E2599B400CCD5B8 /* Press.png */; };
 		5058D2481E2599B400CCD5B8 /* Quit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5058D2431E2599B400CCD5B8 /* Quit.png */; };
 		5058D2491E2599B400CCD5B8 /* Retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 5058D2441E2599B400CCD5B8 /* Retry.png */; };
+		5058D2511E26E4E900CCD5B8 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5058D2501E26E4E900CCD5B8 /* MainMenuScene.sks */; };
+		5058D2551E26E57B00CCD5B8 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5058D2541E26E57B00CCD5B8 /* MainMenuScene.swift */; };
 		50DA155D1E24195F00BBA410 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA155C1E24195F00BBA410 /* AppDelegate.swift */; };
 		50DA15611E24195F00BBA410 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 50DA15601E24195F00BBA410 /* Actions.sks */; };
 		50DA15651E24195F00BBA410 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA15641E24195F00BBA410 /* GameViewController.swift */; };
@@ -65,6 +67,8 @@
 		5058D2421E2599B400CCD5B8 /* Press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Press.png; sourceTree = "<group>"; };
 		5058D2431E2599B400CCD5B8 /* Quit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Quit.png; sourceTree = "<group>"; };
 		5058D2441E2599B400CCD5B8 /* Retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Retry.png; sourceTree = "<group>"; };
+		5058D2501E26E4E900CCD5B8 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		5058D2541E26E57B00CCD5B8 /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		50DA15591E24195F00BBA410 /* FlappyBirdClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBirdClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50DA155C1E24195F00BBA410 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50DA15601E24195F00BBA410 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -260,8 +264,10 @@
 		50DA15B61E241C5C00BBA410 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5058D2501E26E4E900CCD5B8 /* MainMenuScene.sks */,
 				50DA15B81E241C9800BBA410 /* GameplayScene.sks */,
 				50DA15BA1E241CC700BBA410 /* Scene Classes */,
+				5058D2541E26E57B00CCD5B8 /* MainMenuScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5058D2451E2599B400CCD5B8 /* Highscore.png in Resources */,
+				5058D2511E26E4E900CCD5B8 /* MainMenuScene.sks in Resources */,
 				50DA15A31E241B6D00BBA410 /* Green 4.png in Resources */,
 				5058D2481E2599B400CCD5B8 /* Quit.png in Resources */,
 				50DA159A1E241B6000BBA410 /* Blue 3.png in Resources */,
@@ -459,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5058D2551E26E57B00CCD5B8 /* MainMenuScene.swift in Sources */,
 				50DA15BC1E241CE900BBA410 /* GameplayScene.swift in Sources */,
 				50DA15651E24195F00BBA410 /* GameViewController.swift in Sources */,
 				50DA15C21E2436A600BBA410 /* Random.swift in Sources */,

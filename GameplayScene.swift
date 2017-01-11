@@ -59,7 +59,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
                 initalize();
             }
             if atPoint(location).name == "Quit" {
-                //Go Back To Main Menu
+                let mainMenu = MainMenuScene(fileNamed: "MainMenuScene");
+                mainMenu?.scaleMode = .aspectFill
+                self.view?.presentScene(mainMenu!, transition: SKTransition.doorway(withDuration: TimeInterval(1)));
             }
         }
     }
