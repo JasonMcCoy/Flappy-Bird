@@ -30,6 +30,9 @@ class MainMenuScene: SKScene {
             }
             
             if atPoint(location).name == "Bird" {
+                GameManager.instance.incrementIndex();
+                birdBtn.removeFromParent();
+                createBirdButton();
                 
             }
         }
@@ -76,6 +79,17 @@ class MainMenuScene: SKScene {
         birdBtn.position = CGPoint(x: 0, y: 200);
         birdBtn.setScale(1.3);
         birdBtn.zPosition = 3;
+        
+        var birdAnim = [SKTexture]();
+        
+        for i in 1..<4 {
+            let name = "\(GameManager.instance.getBird()) \(i)";
+            birdAnim.append(SKTexture(imageNamed: name));
+        }
+        
+        let animateBird = SKAction.animate(with: birdAnim, timePerFrame: 0.1, resize: true, restore: true);
+        
+        birdBtn.run(SKAction.repeatForever(animateBird));
         
         self.addChild(birdBtn);
     }

@@ -16,6 +16,13 @@ class GameManager {
     var birdIndex = Int(0);
     var birds = ["Blue", "Green", "Red"];
     
+    func incrementIndex() {
+        birdIndex += 1;
+        if birdIndex == birds.count {
+            birdIndex = 0
+        }
+    }
+    
     func getBird() -> String {
         return birds[birdIndex];
     }
