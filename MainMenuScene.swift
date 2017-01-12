@@ -10,6 +10,8 @@ import SpriteKit
 
 class MainMenuScene: SKScene {
     
+    var birdBtn = SKSpriteNode();
+    
     override func didMove(to view: SKView) {
         initalize();
     }
@@ -26,12 +28,17 @@ class MainMenuScene: SKScene {
             
             if atPoint(location).name == "Highscore" {
             }
+            
+            if atPoint(location).name == "Bird" {
+                
+            }
         }
     }
     
     func initalize() {
         createBG();
         createButtons();
+        createBirdButton();
     }
     
     func createBG() {
@@ -60,5 +67,16 @@ class MainMenuScene: SKScene {
         
         self.addChild(play);
         self.addChild(highscore);
+    }
+    
+    func createBirdButton() {
+        birdBtn = SKSpriteNode(imageNamed: "Blue 1");
+        birdBtn.name = "Bird";
+        birdBtn.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        birdBtn.position = CGPoint(x: 0, y: 200);
+        birdBtn.setScale(1.3);
+        birdBtn.zPosition = 3;
+        
+        self.addChild(birdBtn);
     }
 }
