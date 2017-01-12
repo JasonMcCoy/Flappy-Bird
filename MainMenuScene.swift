@@ -12,6 +12,8 @@ class MainMenuScene: SKScene {
     
     var birdBtn = SKSpriteNode();
     
+    var scoreLabel = SKLabelNode();
+    
     override func didMove(to view: SKView) {
         initalize();
     }
@@ -27,6 +29,8 @@ class MainMenuScene: SKScene {
             }
             
             if atPoint(location).name == "Highscore" {
+                scoreLabel.removeFromParent();
+                createLabel();
             }
             
             if atPoint(location).name == "Bird" {
@@ -92,5 +96,13 @@ class MainMenuScene: SKScene {
         birdBtn.run(SKAction.repeatForever(animateBird));
         
         self.addChild(birdBtn);
+    }
+    
+    func createLabel() {
+        scoreLabel = SKLabelNode(fontNamed: "04b_19");
+        scoreLabel.fontSize = 120;
+        scoreLabel.position = CGPoint(x: 0, y: -400);
+        scoreLabel.text = "\(GameManager.instance.getBird())";
+        self.addChild(scoreLabel);
     }
 }

@@ -27,4 +27,11 @@ class GameManager {
         return birds[birdIndex];
     }
     
+    func setHighScore(highscore: Int) {
+        UserDefaults.standard.set(highscore, forKey: "Highscore");
+    }
+    
+    func getHighScore() -> Int {
+        return UserDefaults.standard.integer(forKey: "Highscore");
+    }
 }

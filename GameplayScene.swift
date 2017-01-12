@@ -120,7 +120,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createBird() {
-        bird = Bird(imageNamed: "Blue 1");
+        bird = Bird(imageNamed: "\(GameManager.instance.getBird()) 1");
         bird.initalize();
         bird.position = CGPoint(x: -50, y: 0);
         self.addChild(bird);
@@ -274,6 +274,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         }
         
         isAlive = false;
+        
+        bird.texture = bird.diedTexture;
+        
+        let highscore = GameManager.instance.getHighScore();
+        
+        if highscore < score {
+            //If Current Score Is Greater Than Current Highscore, Then We Have A New Highscore
+            GameManager.instance.setHighScore(highscore: score);
+        }
         
         let retry = SKSpriteNode(imageNamed: "Retry");
         let quit = SKSpriteNode(imageNamed: "Quit");
