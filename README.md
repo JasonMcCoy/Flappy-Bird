@@ -1,4 +1,4 @@
-# Flappy-Bird
+# Flappy Bird
 
 **Summary:**
 
