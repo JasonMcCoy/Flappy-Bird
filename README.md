@@ -23,3 +23,5 @@ This application was created as a clone for the game, Flappy Bird. To learn more
 **Closing:**
 
 In conclusion, I have learned a lot by working on this project. I am confident that I mastered SpriteKit in order to create an exciting and engaging application.
+
+![flappybird1](https://cloud.githubusercontent.com/assets/20284373/23474432/c28a8574-fe81-11e6-96c5-d1312e5f2cbd.jpg) ![flappybird3](https://cloud.githubusercontent.com/assets/20284373/23474433/c2928274-fe81-11e6-9b7d-fd794b6f8030.jpg)
