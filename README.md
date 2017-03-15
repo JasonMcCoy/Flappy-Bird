@@ -20,7 +20,7 @@ This application was created as a clone for the game, Flappy Bird, which I pulle
 Google voice, Bing Voice was based on an online server, so they can't be faster than apple or openear.
 
 **Here is the flow:**
-Audio recognize -> listening voice -> check quiet (end speech) -> processing -> recorgnize -> check right text -> action.
+Audio recognize -> listening voice -> check quiet (end speech) -> processing -> recognize -> check right text -> action.
 
 
 **Testing The App:**
